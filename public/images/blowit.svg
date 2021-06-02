@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="185" height="56" viewBox="0 0 185 56">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 60px;
+        fill: red;
+        text-anchor: middle;
+        font-family: Tiktok;
+      }
+    </style>
+  </defs>
+  <text id="blowIT" class="cls-1" x="92.75" y="48.75"><tspan x="92.75">blowIT</tspan></text>
+</svg>
