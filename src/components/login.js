@@ -8,7 +8,7 @@ const Login = (props) => {
             </a>
             <div>
                 <Join>
-                    GET IN✨
+                    Join US 🥂🚀
                 </Join>
                 <SignIn> 
                     SIGN IN 🔙
@@ -54,7 +54,8 @@ const Nav = styled.nav`
 `;
 
 const Join = styled.a`
- font-size: 16px;
+ font-size: 20px;
+ font-weight: bold;
  padding: 10px 12px;
  text-decoration: none;
  color: #b30000;
