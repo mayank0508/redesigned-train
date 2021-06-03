@@ -19,10 +19,28 @@ const Header = (props) => {
                 </Search>
                 <Nav>
                     <NavListWrap>
-                        <NavList>
+                        <NavList className="active">
                             <a>
                                 <img src="/images/nav-home1.svg" alt="" />
                                 <span>Home</span>
+                            </a>
+                        </NavList>
+                        <NavList>
+                            <a>
+                                <img src="/images/nav-messaging.svg" alt="" />
+                                <span>Message</span>
+                            </a>
+                        </NavList>
+                        <NavList>
+                            <a>
+                                <img src="/images/nav-notifications.svg" alt="" />
+                                <span>notifications</span>
+                            </a>
+                        </NavList>
+                        <NavList>
+                            <a>
+                                <img src="/images/nav-work.svg" alt="" />
+                                <span>Work</span>
                             </a>
                         </NavList>
                     </NavListWrap>
@@ -76,7 +94,6 @@ position: relative;
         height: 34px;
         border-color: #ff1e1e;
         vertical-align: text-top;
-
     }
 }
 `;
@@ -112,6 +129,20 @@ const NavListWrap = styled.ul`
 display: flex;
 flex-wrap: nowrap;
 list-style-type: none;
+
+.active {
+    span:after {
+        content: "";
+        transform: scaleX(1);
+        border-bottom: 5px solid var(--white, #fff);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transition: transform 0.2s ease-in-out;
+        width: 100%;
+        border-color: #ff1e1e;
+    }
+}
 `;
 
 
@@ -136,12 +167,16 @@ a {
         align-items: center;
     }
     @media (max-width: 768px) {
-        min-width: 70px;
+        min-width: 130px;
     }
 }
 &:hover,
 &.active {
-
+ a {
+     span {
+         color: #ff1e1e;
+     }
+ }
 }
 `;
 
