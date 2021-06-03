@@ -22,27 +22,47 @@ const Header = (props) => {
                         <NavList className="active">
                             <a>
                                 <img src="/images/nav-home1.svg" alt="" />
-                                <span>Home</span>
+                                <span>Home </span>
                             </a>
                         </NavList>
                         <NavList>
                             <a>
                                 <img src="/images/nav-messaging.svg" alt="" />
-                                <span>Message</span>
+                                <span>Message </span>
                             </a>
                         </NavList>
                         <NavList>
                             <a>
                                 <img src="/images/nav-notifications.svg" alt="" />
-                                <span>notifications</span>
+                                <span>notifications </span>
                             </a>
                         </NavList>
-                        <NavList>
+                        {/* <NavList>
                             <a>
                                 <img src="/images/nav-work.svg" alt="" />
-                                <span>Work</span>
+                                <span>Work 🖥</span>
                             </a>
-                        </NavList>
+                        </NavList> */}
+
+                        <User>
+                            <a> 
+                            <img src="/images/user.svg" alt="" />
+                            <span> Me </span>
+                            < img src="/images/down-icon.svg" alt="" />
+                            </a>
+
+                            <SignOut>
+                                <a>Sign out</a>
+                                </SignOut>
+                        </User>
+{/* 
+                        <Work>
+                            <a>
+                            <img src="/images/nav-work.svg" alt="" />
+                            <span> Work  </span>
+                            <img src="/images/down-icon.svg" alt="" />
+                            </a>
+                        </Work> */}
                     </NavListWrap>
                     </Nav>
                 </Content>
@@ -134,7 +154,7 @@ list-style-type: none;
     span:after {
         content: "";
         transform: scaleX(1);
-        border-bottom: 5px solid var(--white, #fff);
+        border-bottom: 2px solid var(--white, #fff);
         bottom: 0;
         left: 0;
         position: absolute;
@@ -177,6 +197,46 @@ a {
          color: #ff1e1e;
      }
  }
+}
+`;
+
+const SignOut = styled.div`
+position: absolute;
+top: 45px;
+background: white;
+border-radius: 0 0  5px 5px;
+width: 100px;
+height: 40px;
+font-size: 16px;
+transition-duration: 167ms;
+text-align: center;
+display: none;
+
+`;
+
+const User = styled(NavList)`
+a > svg {
+    width: 24px;
+    border-radius: 50%;    
+}
+
+a > img {
+    width:24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+span {
+    display: flex;
+    align-items: center;
+}
+
+&:hover {
+    ${SignOut} {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
 }
 `;
 
