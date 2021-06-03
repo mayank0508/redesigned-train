@@ -150,7 +150,7 @@ width: 408px;
 const Google = styled.button`
 display: flex;
 justify-content: center;
-background-color:#fff;
+background-color:#ffffff;
 align-items: center;
 height: 56px;
 width: 100%;
@@ -163,7 +163,7 @@ box-shadow: inset 0 0 0 1px rgb(0,0,0 / 60%),
  font-size: 20px;
  color: #b30000;
  &:hover {
-     background-color: #ff9a9a;
+     background-color: black;
      color: rgba(255, 0, 0)
  }
 `;
