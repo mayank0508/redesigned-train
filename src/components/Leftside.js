@@ -20,13 +20,12 @@ const Leftside = (props) => {
                     <span>Follow ⭐</span>
                     <span>The people who inspire you</span>
                     </div>
-                    <img src="/images/widget-icon.svg" alt="" />
+                    <span>🐱‍👤</span>
                 </a>
             </Widget>
             <Item>
                 <span>
-                    <img src="/images/item-icon.svg" alt="" />
-                    <a>Saved 📪</a>
+                    <a>Saved 📑</a>
                 </span>
             </Item>
         </ArtCard>
@@ -38,7 +37,7 @@ const Leftside = (props) => {
                 <a>
                     <span>
                         Events
-                        <img src="/images/plus-icon.svg" alt="" />
+                        <span>➕</span>
                     </span>
                 </a>
                 <a>
@@ -134,7 +133,8 @@ padding-bottom: 12px;
             flex-direction: column;
             text-align: left;
             span {
-                font-size: 15px;
+                font-size: 16px;
+                font-weight: bold;
                 line-height: 1.5em;
                 &:first-child {
                     color: #ff1e1e;
@@ -182,7 +182,7 @@ flex-direction: column;
 a {
     color: black;
     padding:  4px 12px 4px 12px;
-    font-size: 12px;
+    font-size: 16px;
 
 &:hover {
     color: #ff5d5d;
