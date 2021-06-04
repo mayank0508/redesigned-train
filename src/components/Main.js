@@ -42,11 +42,11 @@ const CommonCard = styled.div`
   text-align: center;
   overflow: hidden;
   margin-bottom: 10px;
-  background-color: #fff;
+  background-color: black;
   border-radius: 10px;
   position: relative;
-  border: none;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
+  border: black;
+  box-shadow: 0 0 0 2px
 `;
 
 const ShareBox = styled(CommonCard)`
@@ -54,11 +54,11 @@ const ShareBox = styled(CommonCard)`
   flex-direction: column;
   color: black;
   margin: 0 0 0 8px;
-  background: white;
+  background: black;
   div {
     button {
       outline: none;
-      color: black;
+      color: white;
       font-size: 15px;
       line-height: 1.5;
       min-height: 48px;
@@ -82,9 +82,9 @@ const ShareBox = styled(CommonCard)`
         margin: 4px 0;
         flex-grow: 1;
         padding-left: 16px;
-        border: 1px solid #bfff00;
+        border: 1px solid #ffee00;
         border-radius: 35px;
-        background-color: white;
+        background-color: black;
         text-align: left;
       }
     }

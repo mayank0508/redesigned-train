@@ -58,19 +58,19 @@ const Join = styled.a`
  font-weight: bold;
  padding: 10px 12px;
  text-decoration: none;
- color: #bfff00;
+ color: black;
  border-radius:120px ;
  margin-right: 12px;
  &:hover {
-    background-color: #bfff00;
-    color: black;
+    background-color: black;
+    color: #fee00e;
     text-decoration: none;
  }
 `;
 
 const SignIn = styled.a`
- box-shadow: inset 0 0 0 1px #bfff00;
- color: #bfff00;
+ box-shadow: inset 0 0 0 1px black;
+ color: black;
  border-radius: 120px;
  transition-duration: 167ms;
  font-size: 16px;
@@ -80,8 +80,8 @@ const SignIn = styled.a`
  text-align: center;
  background-color: rgba(0,0,0,0);
  &:hover {
-     background-color: #bfff00;
-     color: black;
+     background-color: black;
+     color: #fee00e;
      text-decoration: none;
  }
 
@@ -113,7 +113,7 @@ h1 {
     width: 55%;
     font-size: 60px;
     font-weight: 800;
-    color: #bfff00;
+    color: black;
     line-height: 70px;
     @media (max-width: 768px) {
         text-align: center;
@@ -150,21 +150,21 @@ width: 408px;
 const Google = styled.button`
 display: flex;
 justify-content: center;
-background-color:#bfff00;
+background-color:black;
 align-items: center;
 height: 56px;
 width: 100%;
 border-radius: 120px;
-box-shadow: 0 0 0 1px #bfff00;
+      box-shadow: 0 0 0 1px black;
  vertical-align: middle;
  z-index: 0;
  transition-duration: 167ms;
  font-size: 20px;
- color: black;
+ color: #fee00e;
  font-weight: bold;
  &:hover {
-     background-color: black;
-     color: #bfff00
+     background-color: #fee00e;
+     color: black;
  }
 `;
 

@@ -14,7 +14,7 @@ const Header = (props) => {
                         <input type="type" placeholder="Search" />
                     </div>
                     <SearchIcon>
-                    <img src="/images/search-icon.svg" alt="" />
+                   <span>🔎</span>
                     </SearchIcon>
                 </Search>
                 <Nav>
@@ -22,22 +22,22 @@ const Header = (props) => {
                         <NavList className="active">
                             <a>
                                 {/* <img src="/images/nav-home1.svg" alt="" /> */}
-                                <span>Home</span>
                                 <span>🏠</span>
+                                <span>Home</span>
                             </a>
                         </NavList>
                         <NavList>
                             <a>
                                 {/* <img src="/images/nav-messaging.svg" alt="" /> */}
-                                <span>Message</span>
                                 <span>💌</span>
+                                <span>Message</span>
                             </a>
                         </NavList>
                         <NavList>
                             <a>
                                 
-                                <span>Notifications</span>
                                 <span>🌍</span>
+                                <span>Notifications</span>
                             </a>
                         </NavList>
                         {/* <NavList>
@@ -82,6 +82,7 @@ position: fixed;
 top: 0;
 width: 100vw;
 z-index: 100; 
+background-color: black;
 `;
 
 const Content = styled.div`
@@ -105,17 +106,17 @@ position: relative;
     max-width: 280px;
     input {
         border: 3px solid black;
-        border-radius: 10px;
+        border-radius: 20px;
         box-shadow: none;
-        background-color: black;
-        color: rgba(0, 0, 0, 0.5);
+        background-color: #fee00e;
+        color: black;
         width: 218px;
         padding: 0 8px 0 40px;
         line-height: 1.75;
         font-weight: 400;
         font-size: 14px;
         height: 34px;
-        border-color: #bfff00;
+        border-color: black;
         vertical-align: text-top;
     }
 }
@@ -163,7 +164,7 @@ list-style-type: none;
         position: absolute;
         transition: transform 0.2s ease-in-out;
         width: 100%;
-        border-color: #bfff00;
+        border-color: black;
     }
 }
 `;
@@ -185,7 +186,7 @@ a {
     position: relative;
     text-decoration: none;
     span {
-        color: #bfff00;
+        color: #ffee00;
         display: flex;
         align-items: center;
     }

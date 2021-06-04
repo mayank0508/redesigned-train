@@ -32,19 +32,19 @@ const Leftside = (props) => {
 
             <CommunityCard>
                 <a>
-                    <span>Groups</span>
+                    <span>Groups 👨‍👨‍👦‍👦</span>
                 </a>
                 <a>
                     <span>
-                        Events
+                        Events 🌲
                         <span>➕</span>
                     </span>
                 </a>
                 <a>
-                    <span>Follow Hashtags</span>
+                    <span>Follow Hashtags 🤘</span>
                 </a>
                 <a>
-                    <span> Discover more !</span>
+                    <span> Discover more 📡</span>
                 </a>
             </CommunityCard>
     </Container>
@@ -59,16 +59,16 @@ const ArtCard = styled.div`
 text-align: center;
 overflow: hidden;
 margin-bottom: 8px;
-background-color: #fff;
+background-color: black;
 border-radius: 10px;
 transition: box-shadow 83ms;
 position : relative;
-border: none;
-box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
+border: black;
+box-shadow: 0 0 0 2px;
 `;
 
 const UserInfo = styled.div`
-border-bottom: 1px solid #ffd5d5;
+border-bottom: 1px solid #ffee00;
 padding: 12px 12px 16px;
 word-wrap: break-word;
 word-break: break-word;
@@ -90,11 +90,11 @@ const Photo = styled.div`
  height: 72px;
  box-sizing: border-box;
  background-clip: content-box;
- background-color: #ffff;
+ background-color: #ffee00;
  background-position: center;
  background-size: 60%;
  background-repeat:  no-repeat;
- border: 2px solid #ff1e1e;
+ border: 2px solid black;
  border-radius: 100px;
  margin: -38px auto 12px;
 
@@ -104,16 +104,16 @@ const Link = styled.div`
 font-size: 16px;
 line-height: 1.5;
 font-weight: bold;
-color: rgb(0,0,0,0.9);
+color: #ffee00;
 
 `;
 
 const AddPhotoText = styled.div`
-color: #d53562;
+color: #ffee00;
 `;
 
 const Widget = styled.div`
-border-bottom: 1px solid #ff5d5d;
+border-bottom: 1px solid #ffee00;
 padding-top: 12px;
 padding-bottom: 12px;
 
@@ -125,7 +125,7 @@ padding-bottom: 12px;
     padding: 4px 12px;
 
     &:hover {
-    background-color: #ff9a9a; 
+    background-color: #ffee00; 
 }
 
     div {
@@ -137,19 +137,14 @@ padding-bottom: 12px;
                 font-weight: bold;
                 line-height: 1.5em;
                 &:first-child {
-                    color: #ff1e1e;
+                    color: white;
                 }
-                &:nth-child {
-                    color: #ff5d5d;
+                &:nth-child(2) {
+                    color: white;
                 }
             }
         }
 
-    }
-
-
-    svg {
-        color: rgba(0,0,0,0.5);
     }
 `;
 
@@ -162,15 +157,12 @@ display: block;
 span {
     display: flex;
     align-items: center;
-    color: rgba(0, 0, 0, 1);
-    
-    svg {
-        color: rgba(0,0,0,0.5);
-    }
+    color: white
 }
 
 &:hover {
-  background-color: #ffd5d5;
+  background-color: #ffee00;
+ 
 }
 `;
 
@@ -180,12 +172,12 @@ text-align: left;
 display: flex;
 flex-direction: column;
 a {
-    color: black;
+    color: white;
     padding:  4px 12px 4px 12px;
     font-size: 16px;
 
 &:hover {
-    color: #ff5d5d;
+    color: #ffee00;
 }
 
 span {
@@ -195,13 +187,13 @@ span {
     }
 
 &:last-child {
-    color: #4e0000;
+    color: white;
     text-decoration: none;
 
-    border-top: 1px solid #ff5d5d;
+    border-top: 1px solid #ffee00;
     padding: 12px;
     &:hover {
-        background-color: #ff5d5d
+        background-color: #ffee00
     }
   }
 }

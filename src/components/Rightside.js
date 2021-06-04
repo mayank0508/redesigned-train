@@ -47,11 +47,11 @@ const FollowCard = styled.div`
   text-align: center;
   overflow: hidden;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: black;
   border-radius: 5px;
   position: relative;
   border-radius: 10px;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 0 0 2px black;
   padding: 12px;
 `;
 
@@ -61,7 +61,7 @@ const Title = styled.div`
   justify-content: space-between;
   font-size: 16px;
   width: 100%;
-  color: Black;
+  color: #ffee00;
 `;
 
 const FeedList = styled.ul`
@@ -73,14 +73,15 @@ const FeedList = styled.ul`
      position: relative;
      font-size: 14px;
      & > div {
+         color: #ffee00;
          display: flex;
          flex-direction: column;
      }
 
      button {
          background-color: transparent;
-         color: black;
-         box-shadow: inset 0 0 0 1px #bfff00;
+         color: white;
+         box-shadow: inset 0 0 0 1px #ffee00;
          padding: 15px;
          align-items: center;
          border-radius: 30px;
@@ -108,7 +109,7 @@ margin-right: 8px;
 `;
 
 const Recommendations = styled.a`
-color: black;
+color: #ffee00;
 display: flex;
 align-items: center;
 font-size: 15px;

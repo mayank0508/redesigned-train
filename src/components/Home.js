@@ -28,7 +28,6 @@ const Home = (props) => {
 const Container = styled.div`
 padding:  52px;
 max-width: 100%;
-
 `;
 
 const Content = styled.div`
@@ -48,7 +47,7 @@ const Section = styled.section`
  display: flex;
  justify-content: center;
  h5 {
-     color: #c4ff14;
+     color: black;
      font-size: 20px;
  }
 
