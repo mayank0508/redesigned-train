@@ -21,20 +21,23 @@ const Header = (props) => {
                     <NavListWrap>
                         <NavList className="active">
                             <a>
-                                <img src="/images/nav-home1.svg" alt="" />
-                                <span>Home </span>
+                                {/* <img src="/images/nav-home1.svg" alt="" /> */}
+                                <span>Home</span>
+                                <span>🏠</span>
                             </a>
                         </NavList>
                         <NavList>
                             <a>
-                                <img src="/images/nav-messaging.svg" alt="" />
-                                <span>Message </span>
+                                {/* <img src="/images/nav-messaging.svg" alt="" /> */}
+                                <span>Message</span>
+                                <span>💌</span>
                             </a>
                         </NavList>
                         <NavList>
                             <a>
-                                <img src="/images/nav-notifications.svg" alt="" />
-                                <span>notifications </span>
+                                
+                                <span>Notifications</span>
+                                <span>🌍</span>
                             </a>
                         </NavList>
                         {/* <NavList>
@@ -46,13 +49,14 @@ const Header = (props) => {
 
                         <User>
                             <a> 
-                            <img src="/images/user.svg" alt="" />
+                            {/* <img src="/images/user.svg" alt="" /> */}
+                            {/* <span>🌐</span> */}
                             <span> Me </span>
                             < img src="/images/down-icon.svg" alt="" />
                             </a>
 
                             <SignOut>
-                                <a>Sign out</a>
+                                <a>Sign out 👋</a>
                                 </SignOut>
                         </User>
 {/* 
@@ -71,8 +75,8 @@ const Header = (props) => {
 };
 
 const Container = styled.div`
- background-color: white;
-border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+ background-color: ;
+border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 left: 0;
 padding: 0 24px;
 position: fixed;
@@ -104,15 +108,15 @@ position: relative;
         border: 3px solid black;
         border-radius: 10px;
         box-shadow: none;
-        background-color: #eaeaea;
-        color: rgba(0, 0, 0, 0.9);
+        background-color: black;
+        color: rgba(0, 0, 0, 0.5);
         width: 218px;
         padding: 0 8px 0 40px;
         line-height: 1.75;
         font-weight: 400;
         font-size: 14px;
         height: 34px;
-        border-color: #ff1e1e;
+        border-color: #bfff00;
         vertical-align: text-top;
     }
 }
@@ -139,7 +143,7 @@ display: block;
     position: fixed;
     left: 0;
     bottom: 0;
-    background: white;
+    background: black;
     width: 100%;
 }
 `;
@@ -160,7 +164,7 @@ list-style-type: none;
         position: absolute;
         transition: transform 0.2s ease-in-out;
         width: 100%;
-        border-color: #ff1e1e;
+        border-color: #bfff00;
     }
 }
 `;
@@ -175,18 +179,19 @@ a {
     display: flex;
     flex-direction: column;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: bold;
     justify-content: center;
     min-height: 52px;
     min-width: 80px;
     position: relative;
     text-decoration: none;
     span {
-        color: rgba(0,0,0,0.5);
+        color: #bfff00;
         display: flex;
         align-items: center;
     }
     @media (max-width: 768px) {
+        font-weight: bold;
         min-width: 130px;
     }
 }
@@ -194,7 +199,7 @@ a {
 &.active {
  a {
      span {
-         color: #ff1e1e;
+         color: white;
      }
  }
 }
@@ -203,7 +208,8 @@ a {
 const SignOut = styled.div`
 position: absolute;
 top: 45px;
-background: white;
+background: black;
+color: #c4ff14;
 border-radius: 0 0  5px 5px;
 width: 100px;
 height: 40px;
