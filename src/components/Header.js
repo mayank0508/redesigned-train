@@ -75,7 +75,6 @@ const Header = (props) => {
 };
 
 const Container = styled.div`
- background-color: ;
 border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 left: 0;
 padding: 0 24px;
