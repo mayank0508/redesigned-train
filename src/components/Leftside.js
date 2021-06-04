@@ -203,6 +203,7 @@ span {
     &:hover {
         background-color: #ff5d5d
     }
+  }
 }
 `;
 
