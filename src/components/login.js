@@ -156,7 +156,6 @@ height: 56px;
 width: 100%;
 border-radius: 120px;
 box-shadow: 0 0 0 1px #bfff00;
- inset 0 0 0 2px rgb(0 0 0 / 0%) inset 0 0 0 2px rgb(0 0 0 / 0%);
  vertical-align: middle;
  z-index: 0;
  transition-duration: 167ms;

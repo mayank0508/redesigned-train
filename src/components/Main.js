@@ -6,8 +6,8 @@ const Main = props => {
       <ShareBox>
         Share
         <div>
-            <img src="/images/user.svg" alt="" />
-            <button>Start a post !</button>
+          <img src="/images/user.svg" alt="" />
+          <button>Start a post !</button>
         </div>
         <div>
           <button>
@@ -69,37 +69,38 @@ const ShareBox = styled(CommonCard)`
       font-weight: bold;
     }
     &:first-child {
-        display: flex;
-        align-items: center;
-        padding: 8px 16px 0px 16x;
-        img {
-            width: 48px;
-            border-radius: 25px;
-            margin-right: 8px;
-            }
+      display: flex;
+      align-items: center;
+      padding: 8px 16px 0px 16x;
+      img {
+        width: 48px;
+        border-radius: 25px;
+        margin-right: 8px;
+      }
 
-        button {
-            margin: 4px 0;
-            flex-grow: 1;
-            padding-left: 16px;
-            border: 1px solid #bfff00;
-            border-radius: 35px;
-            background-color: white;
-            text-align: left;
-        }
+      button {
+        margin: 4px 0;
+        flex-grow: 1;
+        padding-left: 16px;
+        border: 1px solid #bfff00;
+        border-radius: 35px;
+        background-color: white;
+        text-align: left;
+      }
     }
 
-  &:nth-child(2) {
+    &:nth-child(2) {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       padding-bottom: 4px;
 
       button {
-          span {
-              margin: 0 4px 0 -2px;
-          }
+        span {
+          margin: 0 4px 0 -2px;
+        }
       }
+    }
   }
 `;
 
