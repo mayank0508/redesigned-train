@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 const Login = (props) => {
     return <Container>
@@ -168,7 +169,13 @@ border-radius: 120px;
  }
 `;
 
+const mapStateToProps = (state) => {
+    return{};
+};
 
+const mapDispatchToProps = (dispatch) => ({});
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+// export default Login;
 
