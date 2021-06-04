@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import Leftside from './Leftside';
+import Main from './Main';
+import Rightside from './Rightside';
+
 
 const Home = (props) => {
     return (
@@ -13,9 +17,9 @@ const Home = (props) => {
                 </h5>   
         </Section>
         <Layout>
-            <div>Left Side</div>
-            <div>Main</div>
-            <div>Right Side</div>
+            <Leftside />
+            <Main />
+            <Rightside />
         </Layout>
     </Container>
     );
@@ -48,7 +52,7 @@ const Section = styled.section`
      font-size: 20px;
  }
 
- @media (min-width: 768px) {
+ @media (max-width: 768px) {
      flex-direction: column;
      padding: 0 5px;
 
@@ -62,7 +66,7 @@ grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
 column-gap: 25px;
 row-gap: 25px;
 /* grid-template-rows: auto; */
-margin: 25px;
+margin: 25px 0;
 @media (max-width: 768px) {
 display: flex;
 flex-direction: column;
