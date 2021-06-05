@@ -33,7 +33,7 @@ const Rightside = props => {
 </Recommendations>
       </FollowCard>
       <BannerCard>
-          <img src = "images/photoshop.png" alt="" />
+          <img src = "/images/photoshop.jpg" alt="" />
       </BannerCard>
     </Container>
   );
@@ -116,7 +116,12 @@ font-size: 15px;
 `;
 
 const BannerCard = styled(FollowCard)`
-
+img {
+   width: 350px;
+   border-radius: 250px;
+   margin-right: 4px;
+   margin-top: 4px;
+}
 `;
 
 export default Rightside;
