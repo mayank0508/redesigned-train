@@ -169,14 +169,14 @@ const Google = styled.button`
   }
 `;
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
       user: state.userState.user,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  signIn: () => dispatch(signInAPI())
+  signIn: () => dispatch(signInAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

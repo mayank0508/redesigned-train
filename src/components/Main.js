@@ -5,7 +5,11 @@ const Main = props => {
     <Container>
       <ShareBox>
         <div>
-          <img src="/images/user.svg" alt="" />
+          {props.user && props.user.photoURL ? (
+            <img src={props.user.photoUrl} alt="" />
+          ) : (
+            <img src="/images/user.svg" alt="" />
+          )}
           <button>Start a post !</button>
         </div>
         <div>
