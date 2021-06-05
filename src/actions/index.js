@@ -1,12 +1,12 @@
 import { auth, provider } from '../firebase';
 
 export function signInAPI() {
-  return dispatch => {
+  return (dispatch) => {
     auth
       .signInWithPopup(provider)
-      .then(payload => {
+      .then((payload) => {
         console.log(payload);
       })
-      .catch(error => alert(error.message));
+      .catch((error) => alert(error.message));
   };
 }
