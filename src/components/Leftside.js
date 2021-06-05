@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import styled from 'styled-components'
 
 const Leftside = (props) => {
@@ -8,7 +9,7 @@ const Leftside = (props) => {
                 <CardBackground />
                     <a>
                         <Photo />
-                            <Link>WELCOME !</Link>
+                            <Link>WELCOME, {props.user ? props.user.displayName : 'MC'} 🙏</Link>
                     </a>
                         <a>
                             <AddPhotoText>Add Photo</AddPhotoText>
@@ -199,6 +200,12 @@ span {
 }
 `;
 
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user,
+    };
+};
 
 
-export default Leftside;
+
+export default connect(mapStateToProps)(Leftside);
