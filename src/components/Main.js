@@ -29,11 +29,11 @@ const Main = props => {
       <ShareBox>
         <div>
           {props.user && props.user.photoURL ? (
-            <img src={props.user.photoUrl} alt="" />
+            <img src={props.user.photoURL} />
           ) : (
-            <img src="/images/user.svg" alt="" />
+            <span>🕕</span>
           )}
-          <button onClick ={handleClick}>Start a post !</button>
+          <button onClick={handleClick}>Start a post !</button>
         </div>
         <div>
           <button>
@@ -110,7 +110,7 @@ const Main = props => {
           </SocialActions>
         </Article>
       </div>
-      <PostModal showModal ={showModal} handleClick={handleClick} />
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };
@@ -298,6 +298,5 @@ const SocialActions = styled.div`
     }
   }
 `;
-
 
 export default Main;
