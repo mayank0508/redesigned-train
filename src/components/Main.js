@@ -75,7 +75,7 @@ const Main = props => {
           <Description>description</Description>
           <SharedImage>
             <a>
-              <img src="/images/mc.jpg" alt="" />
+              <img src="/images/unnamed.jpg" alt="" />
             </a>
           </SharedImage>
           <SocialCounts>

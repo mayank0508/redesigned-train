@@ -9,9 +9,10 @@ const PostModal = props => {
     const image = e.target.files[0];
 
     if (image === '' || image === undefined) {
-      alert(`not a image, the file is a ${typeof image}`);
+      alert(`not an image, the file is a ${typeof image}`);
       return;
     }
+
     setShareImage(image);
   };
 
@@ -53,8 +54,9 @@ const PostModal = props => {
                     onChange={handleChange}
                   />
                   <p>
-                    <table htmlFor="file">Select an </table>
+                    <label htmlFor="file">Select an Image to Share</label>
                   </p>
+                  {shareImage && <img src={URL.createObjectURL(shareImage)}/>}
                 </UploadImage>
               </Editor>
             </SharedContent>
@@ -228,6 +230,11 @@ const Editor = styled.div`
   }
 `;
 
-const UploadImage = styled.div``;
+const UploadImage = styled.div`
+text-align: center;
+img {
+  width: 100%;
+}
+`;
 
 export default PostModal;
