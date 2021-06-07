@@ -3,58 +3,85 @@ import { useState } from 'react';
 
 const PostModal = props => {
   const [editorText, setEditorText] = useState('');
+  const [shareImage, setShareImage] = useState('');
 
-  const reset = (e) => {
-    setEditorText("");
+  const handleChange = e => {
+    const image = e.target.files[0];
+
+    if (image === '' || image === undefined) {
+      alert(`not a image, the file is a ${typeof image}`);
+      return;
+    }
+    setShareImage(image);
+  };
+
+  const reset = e => {
+    setEditorText('');
     props.handleClick(e);
   };
 
   return (
     <>
-    { props.showModal === 'open' && 
-    <Container>
-      <Content>
-        <Header>
-          <h2>Create a new post</h2>
-          <button onClick={(event) => reset(event)}>
-            <span>❌</span>
-          </button>
-        </Header>
-        <SharedContent>
-          <UserInfo>
-            <img src="/images/user.svg" alt="" />
-            <span>Me</span>
-          </UserInfo>
-          <Editor>
-            <textarea
-              value={editorText}
-              onChange={e => setEditorText(e.target.value)}
-              placeholder="Feeling Dangerous today ?"
-              autoFocus={true}
-            ></textarea>
-          </Editor>
-        </SharedContent>
-        <SharedCreation>
-          <AttachAsset>
-            <AssetButton>
-              <span>📸</span>
-            </AssetButton>
-            <AssetButton>
-              <span>🎥</span>
-            </AssetButton>
-          </AttachAsset>
-          <SharedComment>
-            <AssetButton>
-              <span>💬</span>
-              anyone
-            </AssetButton>
-          </SharedComment>
+      {props.showModal === 'open' && (
+        <Container>
+          <Content>
+            <Header>
+              <h2>Create a new post</h2>
+              <button onClick={event => reset(event)}>
+                <span>❌</span>
+              </button>
+            </Header>
+            <SharedContent>
+              <UserInfo>
+                <img src="/images/user.svg" alt="" />
+                <span>Me</span>
+              </UserInfo>
+              <Editor>
+                <textarea
+                  value={editorText}
+                  onChange={e => setEditorText(e.target.value)}
+                  placeholder="Feeling Dangerous today ?"
+                  autoFocus={true}
+                />
+                <UploadImage>
+                  <input
+                    type="file"
+                    accept="image/gif, image/jpeg, image/png"
+                    name="image"
+                    id="file"
+                    style={{ display: 'none' }}
+                    onChange={handleChange}
+                  />
+                  <p>
+                    <table htmlFor="file">Select an </table>
+                  </p>
+                </UploadImage>
+              </Editor>
+            </SharedContent>
+            <SharedCreation>
+              <AttachAsset>
+                <AssetButton>
+                  <span>📸</span>
+                </AssetButton>
+                <AssetButton>
+                  <span>🎥</span>
+                </AssetButton>
+              </AttachAsset>
+              <SharedComment>
+                <AssetButton>
+                  <span>💬</span>
+                  wanna say something
+                </AssetButton>
+              </SharedComment>
 
-          <PostButton>Post</PostButton>
-        </SharedCreation>
-      </Content>
-    </Container>
-}
+              <PostButton disabled={!editorText ? true : false}>
+                {' '}
+                Post
+              </PostButton>
+            </SharedCreation>
+          </Content>
+        </Container>
+      )}
     </>
   );
 };
@@ -178,10 +205,10 @@ const PostButton = styled.button`
   border-radius: 20px;
   padding-left: 16px;
   padding-right: 16px;
-  background-color: white;
-  color: black;
+  background: ${props => (props.disabled ? '#ff1e1e' : '#ffee00')};
+  color: ${props => (props.disabled ? '#ff1e1e' : 'black')};
   &:hover {
-    background-color: #ffee00;
+    background-color: ${props => (props.disabled ? '#ff1e1e' : '#ffee00')};
   }
 `;
 
@@ -200,5 +227,7 @@ const Editor = styled.div`
     margin-bottom: 20px;
   }
 `;
+
+const UploadImage = styled.div``;
 
 export default PostModal;
