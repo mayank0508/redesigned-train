@@ -1,9 +1,15 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import PostModal from './PostModal';
-import { useState } from 'react';
+import PostModal from './PostModal'; 
+import { connect } from 'react-redux';
+import { getArticlesAPI } from '../actions';
 
 const Main = props => {
   const [showModal, setShowModal] = useState('close');
+
+  useEffect(() => {
+    props.getArticles()
+  }, []);
 
   const handleClick = e => {
     e.preventDefault();
@@ -31,9 +37,11 @@ const Main = props => {
           {props.user && props.user.photoURL ? (
             <img src={props.user.photoURL} />
           ) : (
-            <span>🕕</span>
+            <img src="/images/user.svg" alt="" />
           )}
-          <button onClick={handleClick}>Start a post !</button>
+          <button onClick={handleClick} disabled={props.loading ? true : false}>
+            Start a post !
+          </button>
         </div>
         <div>
           <button>
@@ -57,7 +65,8 @@ const Main = props => {
           </button>
         </div>
       </ShareBox>
-      <div>
+      <Content>
+        {props.loading && <span>🔥</span>}
         <Article>
           <SharedActor>
             <a>
@@ -109,7 +118,7 @@ const Main = props => {
             </button>
           </SocialActions>
         </Article>
-      </div>
+      </Content>
       <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
@@ -299,4 +308,23 @@ const SocialActions = styled.div`
   }
 `;
 
-export default Main;
+const Content = styled.div`
+  text-align: center;
+  & > span {
+    width: 38px;
+  }
+`;
+
+const mapStateToProps = state => {
+  return {
+    loading: state.articleState.loading,
+    user: state.userState.user,
+    articles: state.articleState.articles,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+getArticles: dispatch(getArticlesAPI()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

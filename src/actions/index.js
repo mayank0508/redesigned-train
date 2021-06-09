@@ -1,5 +1,5 @@
 import { auth, provider, storage } from '../firebase';
-import { SET_USER, SET_LOADING_STATUS } from './actionType';
+import { SET_USER, SET_LOADING_STATUS, GET_ARTICLE } from './actionType';
 import db from '../firebase';
 
 export const setUser = payload => ({
@@ -7,10 +7,10 @@ export const setUser = payload => ({
   user: payload
 });
 
-export const setLoading = (status) => ({
+export const setLoading = status => ({
   type: SET_LOADING_STATUS,
-  status: status,
-})
+  status: status
+});
 
 export function signInAPI() {
   return dispatch => {
@@ -51,7 +51,7 @@ export function postArticleAPI(payload) {
   return dispatch => {
     dispatch(setLoading(true));
 
-    if (payload.image != '') {
+    if (payload.image !== '') {
       const upload = storage
         .ref(`images/${payload.image.name}`)
         .put(payload.image);
@@ -61,7 +61,7 @@ export function postArticleAPI(payload) {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-          console.log(`Progress: $(progress)%`);
+          console.log(`Progress: ${progress}%`);
           if (snapshot.state === 'RUNNING') {
             console.log(`Progress: ${progress}%`);
           }
@@ -79,7 +79,7 @@ export function postArticleAPI(payload) {
             video: payload.video,
             shareImage: downloadURL,
             comment: 0,
-            description: payload.description,
+            description: payload.description
           });
           dispatch(setLoading(false));
         }
@@ -90,14 +90,27 @@ export function postArticleAPI(payload) {
           description: payload.user.email,
           title: payload.user.displayName,
           date: payload.timestamp,
-          image: payload.user.photoURL,
+          image: payload.user.photoURL
         },
         video: payload.video,
-        sharedImg: "",
+        sharedImg: '',
         comments: 0,
-        description: payload.description,
+        description: payload.description
       });
       dispatch(setLoading(false));
     }
+  };
+}
+
+export function getArticlesAPI() {
+  return dispatch => {
+    let payload;
+
+    db.collection('articles')
+      .orderBy('actor.date', 'desc')
+      .onSnapshot(snapshot => {
+        payload = snapshot.docs.nap(docs => doc.data());
+        console.log(payload);
+      });
   };
 }
