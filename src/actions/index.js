@@ -12,6 +12,11 @@ export const setLoading = status => ({
   status: status
 });
 
+export const getArticles = payload => ({
+  type: GET_ARTICLE,
+  payload: payload
+});
+
 export function signInAPI() {
   return dispatch => {
     auth
@@ -109,8 +114,8 @@ export function getArticlesAPI() {
     db.collection('articles')
       .orderBy('actor.date', 'desc')
       .onSnapshot(snapshot => {
-        payload = snapshot.docs.nap(docs => doc.data());
-        console.log(payload);
+        payload = snapshot.docs.nap(doc => doc.data());
+        dispatch(getArticles(payload));
       });
   };
 }

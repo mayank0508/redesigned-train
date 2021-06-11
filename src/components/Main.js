@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import PostModal from './PostModal'; 
+import PostModal from './PostModal';
 import { connect } from 'react-redux';
 import { getArticlesAPI } from '../actions';
+import ReactPlayer from 'react-player';
 
 const Main = props => {
   const [showModal, setShowModal] = useState('close');
 
   useEffect(() => {
-    props.getArticles()
+    props.getArticles();
   }, []);
 
   const handleClick = e => {
@@ -31,96 +32,114 @@ const Main = props => {
   };
 
   return (
-    <Container>
-      <ShareBox>
-        <div>
-          {props.user && props.user.photoURL ? (
-            <img src={props.user.photoURL} />
-          ) : (
-            <img src="/images/user.svg" alt="" />
-          )}
-          <button onClick={handleClick} disabled={props.loading ? true : false}>
-            Start a post !
-          </button>
-        </div>
-        <div>
-          <button>
-            <span>📷</span>
-            <span>Photo</span>
-          </button>
-
-          <button>
-            <span>🎥</span>
-            <span>Video</span>
-          </button>
-
-          <button>
-            <span>🌆</span>
-            <span>Events</span>
-          </button>
-
-          <button>
-            <span>📃</span>
-            <span>Article</span>
-          </button>
-        </div>
-      </ShareBox>
-      <Content>
-        {props.loading && <span>🔥</span>}
-        <Article>
-          <SharedActor>
-            <a>
-              <img src="/images/user.svg" alt="" />
-              <div>
-                <span>Title</span>
-                <span>Info</span>
-                <span>Date</span>
-              </div>
-            </a>
-            <button>
-              <span>❗</span>
-            </button>
-          </SharedActor>
-          <Description>description</Description>
-          <SharedImage>
-            <a>
-              <img src="/images/unnamed.jpg" alt="" />
-            </a>
-          </SharedImage>
-          <SocialCounts>
-            <li>
-              <button>
-                <span>👍</span>
-                <span>🔥</span>
-                <span>100</span>
+    <>
+      {props.articles.length === 0 ? (
+        <p>There are no articles.</p>
+      ) : (
+        <Container>
+          <ShareBox>
+            <div>
+              {props.user && props.user.photoURL ? (
+                <img src={props.user.photoURL} />
+              ) : (
+                <img src="/images/user.svg" alt="" />
+              )}
+              <button
+                onClick={handleClick}
+                disabled={props.loading ? true : false}
+              >
+                Start a post !
               </button>
-            </li>
-            <li>
-              <a>5 discussion</a>
-            </li>
-          </SocialCounts>
-          <SocialActions>
-            <button>
-              <span>👍</span>
-              <span>Like</span>
-            </button>
-            <button>
-              <span>💬</span>
-              <span>Comment</span>
-            </button>
-            <button>
-              <span>⏩</span>
-              <span>Share</span>
-            </button>
-            <button>
-              <span>📑</span>
-              <span>Save</span>
-            </button>
-          </SocialActions>
-        </Article>
-      </Content>
-      <PostModal showModal={showModal} handleClick={handleClick} />
-    </Container>
+            </div>
+            <div>
+              <button>
+                <span>📷</span>
+                <span>Photo</span>
+              </button>
+
+              <button>
+                <span>🎥</span>
+                <span>Video</span>
+              </button>
+
+              <button>
+                <span>🌆</span>
+                <span>Events</span>
+              </button>
+
+              <button>
+                <span>📃</span>
+                <span>Article</span>
+              </button>
+            </div>
+          </ShareBox>
+          <Content>
+            {props.loading && <span>🔥</span>}
+            {props.articles.length > 0 &&
+              props.articles.map((article, key) => (
+                <Article key={key}>
+                  <SharedActor>
+                    <a>
+                      <img src={article.actor.image} alt="" />
+                      <div>
+                        <span>{article.actor.title}</span>
+                        <span>{article.actor.description}</span>
+                        <span>
+                          {article.actor.date.toDate().toLocaleDateString()}
+                        </span>
+                      </div>
+                    </a>
+                    <button>
+                      <span>❗</span>
+                    </button>
+                  </SharedActor>
+                  <Description>{article.description}</Description>
+                  <SharedImage>
+                    <a>
+                      {!article.sharedImg && article.videos ? (
+                        <ReactPlayer width={'100%'} url={article.video} />
+                      ) : (
+                        article.sharedImg && <img src={article.sharedImg} />
+                      )}
+                    </a>
+                  </SharedImage>
+                  <SocialCounts>
+                    <li>
+                      <button>
+                        <span>👍</span>
+                        <span>🔥</span>
+                        <span>100</span>
+                      </button>
+                    </li>
+                    <li>
+                      <a>{article.comments}</a>
+                    </li>
+                  </SocialCounts>
+                  <SocialActions>
+                    <button>
+                      <span>👍</span>
+                      <span>Like</span>
+                    </button>
+                    <button>
+                      <span>💬</span>
+                      <span>Comment</span>
+                    </button>
+                    <button>
+                      <span>⏩</span>
+                      <span>Share</span>
+                    </button>
+                    <button>
+                      <span>📑</span>
+                      <span>Save</span>
+                    </button>
+                  </SocialActions>
+                </Article>
+              ))}
+          </Content>
+          <PostModal showModal={showModal} handleClick={handleClick} />
+        </Container>
+      )}
+    </>
   );
 };
 
@@ -284,6 +303,8 @@ const SocialCounts = styled.ul`
     font-size: 12px;
     button {
       display: flex;
+      border: none;
+      background-color: white;
     }
   }
 `;
@@ -300,6 +321,8 @@ const SocialActions = styled.div`
     align-items: center;
     padding: 8px;
     color: black;
+    border: none;
+    background-color: white;
     @media (min-width: 768px) {
       span {
         margin-left: 8px;
@@ -319,12 +342,12 @@ const mapStateToProps = state => {
   return {
     loading: state.articleState.loading,
     user: state.userState.user,
-    articles: state.articleState.articles,
+    articles: state.articleState.articles
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-getArticles: dispatch(getArticlesAPI()),
-})
+const mapDispatchToProps = dispatch => ({
+  getArticles: dispatch(getArticlesAPI())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
