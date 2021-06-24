@@ -10,7 +10,7 @@ const Main = props => {
 
   useEffect(() => {
     props.getArticles();
-  });
+  }, []);
 
   const handleClick = e => {
     e.preventDefault();
@@ -94,16 +94,15 @@ const Main = props => {
                     </button>
                   </SharedActor>
                   <Description>{article.description}</Description>
-                  <SharedImage>
+                  <SharedImg>
                     <a>
-                      {
-                      !article.sharedImg && article.videos ? (
+                      {!article.sharedImg && article.videos ? (
                         <ReactPlayer width={'100%'} url={article.video} />
                       ) : (
-                        article.sharedImg && <img src={article.sharedImg}  alt ="" />
+                        article.sharedImg && <img src={article.sharedImg} />
                       )}
                     </a>
-                  </SharedImage>
+                  </SharedImg>
                   <SocialCounts>
                     <li>
                       <button>
@@ -277,7 +276,7 @@ const Description = styled.div`
   text-align: left;
 `;
 
-const SharedImage = styled.div`
+const SharedImg = styled.div`
   margin-top: 8px;
   width: 100%;
   display: block;

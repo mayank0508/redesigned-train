@@ -15,7 +15,7 @@ const articleReducer = (state = initState, action) => {
     case SET_LOADING_STATUS:
       return {
         ...state,
-        loading: action.status
+        loading: action.status 
       };
     default:
       return state;
