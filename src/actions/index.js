@@ -113,8 +113,8 @@ export function getArticlesAPI() {
 
     db.collection('articles')
       .orderBy('actor.date', 'desc')
-      .onSnapshot(snapshot => {
-        payload = snapshot.docs.nap(doc => doc.data());
+      .onSnapshot((snapshot) => {
+        payload = snapshot.docs.map(doc => doc.data());
         dispatch(getArticles(payload));
       });
   };

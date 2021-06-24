@@ -10,7 +10,7 @@ const Main = props => {
 
   useEffect(() => {
     props.getArticles();
-  }, []);
+  });
 
   const handleClick = e => {
     e.preventDefault();
@@ -74,7 +74,7 @@ const Main = props => {
             </div>
           </ShareBox>
           <Content>
-            {props.loading && <span>🔥</span>}
+            {props.loading && <span>⌛</span>}
             {props.articles.length > 0 &&
               props.articles.map((article, key) => (
                 <Article key={key}>
@@ -96,10 +96,11 @@ const Main = props => {
                   <Description>{article.description}</Description>
                   <SharedImage>
                     <a>
-                      {!article.sharedImg && article.videos ? (
+                      {
+                      !article.sharedImg && article.videos ? (
                         <ReactPlayer width={'100%'} url={article.video} />
                       ) : (
-                        article.sharedImg && <img src={article.sharedImg} />
+                        article.sharedImg && <img src={article.sharedImg}  alt ="" />
                       )}
                     </a>
                   </SharedImage>
@@ -347,7 +348,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getArticles: dispatch(getArticlesAPI())
+  getArticles: () => dispatch(getArticlesAPI())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
